@@ -4,7 +4,7 @@
 Path planning and Control related projects of Udacity's Self-driving Car Nanodegree Program:  
 * [PID Control](./PIDControl/)
 * [Model Predictive Control](./ModelPredictiveControl/)
-* [Path Planning](./Path Planning/)
+* [Path Planning](./PathPlanning/)
 
 ## PID Control
 <p align="center">
