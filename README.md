@@ -1,4 +1,4 @@
-# SDC - Path planning and Control Projects
+# SDC - Path Planning and Control Projects
 [![Udacity - Self-Driving Car NanoDegree](https://s3.amazonaws.com/udacity-sdc/github/shield-carnd.svg)](http://www.udacity.com/drive)
 
 Path planning and Control related projects of Udacity's Self-driving Car Nanodegree Program:  
