@@ -1,4 +1,8 @@
-# Project - Model Predictive Control
+# Term 2 Project 5: Model Predictive Control
+
+<p align="center">
+  <img src="./mpc.gif">
+</p>
 
 [image1]: ./images/model.png "Model"
 [image2]: ./images/actuator.png "Model"
