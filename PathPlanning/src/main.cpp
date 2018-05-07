@@ -34,10 +34,13 @@ string hasData(string s) {
   return "";
 }
 
+// Euclidean distance
 double distance(double x1, double y1, double x2, double y2)
 {
 	return sqrt((x2-x1)*(x2-x1)+(y2-y1)*(y2-y1));
 }
+
+// Index of closest waypoint
 int ClosestWaypoint(double x, double y, const vector<double> &maps_x, const vector<double> &maps_y)
 {
 
@@ -61,6 +64,7 @@ int ClosestWaypoint(double x, double y, const vector<double> &maps_x, const vect
 
 }
 
+// Index to next waypoint
 int NextWaypoint(double x, double y, double theta, const vector<double> &maps_x, const vector<double> &maps_y)
 {
 
@@ -242,8 +246,24 @@ int main() {
           	vector<double> next_x_vals;
           	vector<double> next_y_vals;
 
+            // Plan path
+            // Define a path made up of (x,y) points that the car will visit sequentially every .02 seconds
+            double dist_inc = 0.45;
+            for(int i = 0; i < 50; i++)
+            {
+              
+              double next_s = car_s + dist_inc * (i+1);
+              double next_d = 6;
 
-          	// TODO: define a path made up of (x,y) points that the car will visit sequentially every .02 seconds
+              vector<double> next_xy = getXY(next_s, next_d, 
+                map_waypoints_s, map_waypoints_x, map_waypoints_y);
+
+              //std::cout << next_s << " " << next_d << " " << next_xy[0] << " " << next_xy[1] << std::endl;
+              next_x_vals.push_back(next_xy[0]);
+              next_y_vals.push_back(next_xy[1]);
+            }
+
+          	// Add path to json
           	msgJson["next_x"] = next_x_vals;
           	msgJson["next_y"] = next_y_vals;
 
