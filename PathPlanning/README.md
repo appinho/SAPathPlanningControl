@@ -18,12 +18,12 @@ Therefore, each detected object that is in front of the self-driving car or at m
 This module, which can be found in lines 178-204 & 364-461 in `main.py`, the future behavior of the self-driving car is determined. The decision making can be separated in three cases:
 
 * Self-driving car is in center lane:
-⋅⋅⋅ All lanes are blocked  
-⋅⋅⋅⋅⋅⋅ and the front car is faster ->  `keepDistance()`
-⋅⋅⋅⋅⋅⋅ and the front car is slower ->  `decelerate()`
-⋅⋅⋅ Center lane is blocked but left lane is free ->  `laneChangeLeft()`  
-⋅⋅⋅ Center lane is blocked but right lane is free ->  `laneChangeRight()`  
-⋅⋅⋅ Center lane is free  ->  `accelerate()` 
+⋅⋅* All lanes are blocked  
+⋅⋅⋅⋅* and the front car is faster ->  `keepDistance()`
+⋅⋅⋅⋅* and the front car is slower ->  `decelerate()`
+⋅⋅* Center lane is blocked but left lane is free ->  `laneChangeLeft()`  
+⋅⋅* Center lane is blocked but right lane is free ->  `laneChangeRight()`  
+⋅⋅* Center lane is free  ->  `accelerate()` 
 * Self-driving car is in right lane:
 * Self-driving car is in left lane:
 
