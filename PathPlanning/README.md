@@ -16,12 +16,12 @@ Each cycle, the path planner runs through 3 different phases
 
 ### 1 Perception
 
-In this module, which can be found in lines 285-361 in `main.py`, uses the Sensor Fusion data to estimate the surrouding of the self-driving car.  
+In this module, which can be found in lines 297-373 in `main.py`, uses the Sensor Fusion data to estimate the surrouding of the self-driving car.  
 Therefore, each detected object that is in front of the self-driving car or at max `min_back_dist` behind is further investigated. Next, the lane in which the car was detected is determined. For each lane, the closest measurement to the self-driving car is stored, and the lane is considered as blocked if this distance is less than a threshold `min_dist`. Moreover, this minimum distance and the velocity of the closest car in each lane is stored.
 
 ### 2 Behavior
 
-This module, which can be found in lines 178-204 & 364-461 in `main.py`, the future behavior of the self-driving car is determined. The decision making can be separated in three cases:
+This module, which can be found in lines 182-216 & 374-488 in `main.py`, the future behavior of the self-driving car is determined. The decision making can be separated in three cases:
 
 * Self-driving car is in center lane:
   * All lanes are blocked
@@ -45,6 +45,8 @@ This module, which can be found in lines 178-204 & 364-461 in `main.py`, the fut
     * And center lane is free ->  `laneChangeLeft()`
   * Right lane is free  ->  `accelerate()`
   
+This decision making tree is only propagated if the self-driving car is currently **not** in a lane change maneuver. This safety check is needed to prevent the car from fast changing maneuver planning.
+  
 Example shots of each situation:
 
 * Full speed scenario
@@ -61,7 +63,7 @@ Example shots of each situation:
 
 ### 3 Trajectory Planning
 
-In this module, which can be found in lines 465-581 in `main.py`, the actual trajectory of the self-driving car is determined. Therefore, the previous planned path is used as first waypoints if it consists more than two points. Otherwise, the stored reference point is used. Moreover, three farther points are added at distances of 50m, 60m and 90m. Next, these list of waypoints is transformed back in local coordinates to be used by the [spline library](http://kluge.in-chemnitz.de/opensource/spline/). Again, if there is already a planned path, it is used as starting point for the trajectory. Next, 50 points are equally interpolated in a path of a distance of 30m. This includes the information of the behavior module, so acceleration and decelerations are considered in the distances of two consecutive trajetory points. And last but not least, the points are transformed back in global coordinates.
+In this module, which can be found in lines 490-608 in `main.py`, the actual trajectory of the self-driving car is determined. Therefore, the previous planned path is used as first waypoints if it consists more than two points. Otherwise, the stored reference point is used. Moreover, three farther points are added at distances of 50m, 60m and 90m. Next, these list of waypoints is transformed back in local coordinates to be used by the [spline library](http://kluge.in-chemnitz.de/opensource/spline/). Again, if there is already a planned path, it is used as starting point for the trajectory. Next, 50 points are equally interpolated in a path of a distance of 30m. This includes the information of the behavior module, so acceleration and decelerations are considered in the distances of two consecutive trajetory points. And last but not least, the points are transformed back in global coordinates.
 
 # CarND-Path-Planning-Project
 Self-Driving Car Engineer Nanodegree Program
