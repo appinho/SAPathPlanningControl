@@ -182,14 +182,14 @@ vector<double> getXY(double s, double d, const vector<double> &maps_s, const vec
 // Behavior functions
 void laneChangeLeft(){
   aimed_lane = lane - 1;
-  diff_v = max_acc;
+  diff_v = max_acc / 2;
   is_in_lane_change = true;
   std::cout << "LC left " << std::endl;
 }
 
 void laneChangeRight(){
   aimed_lane = lane + 1;
-  diff_v = max_acc;
+  diff_v = max_acc / 2;
   is_in_lane_change = true;
   std::cout << "LC right " << std::endl;
 }
