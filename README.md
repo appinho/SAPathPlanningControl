@@ -2,13 +2,13 @@
 [![Udacity - Self-Driving Car NanoDegree](https://s3.amazonaws.com/udacity-sdc/github/shield-carnd.svg)](http://www.udacity.com/drive)
 
 Path planning and Control related projects of Udacity's Self-driving Car Nanodegree Program:  
-* [PID Control](./PIDControl/)
-* [Model Predictive Control](./ModelPredictiveControl/)
 * [Path Planning](./PathPlanning/)
+* [Model Predictive Control](./ModelPredictiveControl/)
+* [PID Control](./PIDControl/)
 
-## PID Control
+## Path Planning
 <p align="center">
-  <img src="./PIDControl/pid.gif">
+  <img src="./PathPlanning/path_planning.gif">
 </p>
 
 ## Model Predictive Control
@@ -16,7 +16,7 @@ Path planning and Control related projects of Udacity's Self-driving Car Nanodeg
   <img src="./ModelPredictiveControl/mpc.gif">
 </p>
 
-## Path Planning
+## PID Control
 <p align="center">
-  <img src="./PathPlanning/path_planning.gif">
+  <img src="./PIDControl/pid.gif">
 </p>
