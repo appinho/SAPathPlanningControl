@@ -19,7 +19,7 @@ using json = nlohmann::json;
 double max_speed = 49.9;
 double max_acc = 0.2;
 double diff_v = 0;
-double min_dist = 40.0;
+double min_dist = 50.0;
 double min_back_dist = -10.0;
 double dist_target = 30.0;
 bool is_in_lane_change = false;
@@ -377,7 +377,7 @@ int main() {
             if(is_in_lane_change){
 
               // Lane change is over
-              if(abs(car_d - (aimed_lane * 4 + 2)) < 0.2){
+              if(abs(car_d - (aimed_lane * 4 + 2)) < 0.4){
                 is_in_lane_change = false;
                 std::cout << "Lange change is over" << std::endl;
               }
