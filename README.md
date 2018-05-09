@@ -17,5 +17,6 @@ Path planning and Control related projects of Udacity's Self-driving Car Nanodeg
 </p>
 
 ## Path Planning
-
-Coming soon..  
+<p align="center">
+  <img src="./PathPlanning/path_planning.gif">
+</p>
