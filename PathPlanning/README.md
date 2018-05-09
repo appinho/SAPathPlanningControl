@@ -45,7 +45,7 @@ This module, which can be found in lines 182-216 & 374-488 in `main.py`, the fut
     * And center lane is free ->  `laneChangeLeft()`
   * Right lane is free  ->  `accelerate()`
   
-This decision making tree is only propagated if the self-driving car is currently **not** in a lane change maneuver. This safety check is needed to prevent the car from fast changing maneuver planning.
+This decision making tree is only propagated if the self-driving car is currently **not** in a lane change maneuver. This safety check is needed to prevent the car from fast changing maneuver planning which would cause dangerous peeks in jerk and acceleration.
   
 Example shots of each situation:
 
