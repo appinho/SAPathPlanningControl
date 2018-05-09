@@ -4,6 +4,12 @@
   <img src="./pp.gif">
 </p>
 
+
+[image1]: ./imgs/full_speed.png "Full speed scenario"
+[image2]: ./imgs/lane_change_left.png "Lane change to the left"
+[image3]: ./imgs/lane_change_right.png "Lane change to the right"
+[image4]: ./imgs/keep_distance.png "Keep distance"
+
 ## Pipeline
 
 Each cycle, the path planner runs through 3 different phases
@@ -24,13 +30,38 @@ This module, which can be found in lines 178-204 & 364-461 in `main.py`, the fut
   * Center lane is blocked but left lane is free ->  `laneChangeLeft()`
   * Center lane is blocked but right lane is free ->  `laneChangeRight()`
   * Center lane is free  ->  `accelerate()` 
-* Self-driving car is in right lane:
 * Self-driving car is in left lane:
+  * Left lane is blocked
+    * And center lane is also blocked
+      * and the front car is faster ->  `keepDistance()`
+      * and the front car is slower ->  `decelerate()`
+    * And center lane is free ->  `laneChangeRight()`
+  * Left lane is free  ->  `accelerate()`
+* Self-driving car is in right lane:
+  * Right lane is blocked
+    * And center lane is also blocked
+      * and the front car is faster ->  `keepDistance()`
+      * and the front car is slower ->  `decelerate()`
+    * And center lane is free ->  `laneChangeLeft()`
+  * Right lane is free  ->  `accelerate()`
+  
+Example shots of each situation:
+
+* Full speed scenario
+![alt text][image1]
+
+* Lane change to the left
+![alt text][image2]
+
+* Lane change to the right
+![alt text][image3]
+
+* Keep distance
+![alt text][image4]
 
 ### Trajectory Planning
 
-In this module, which can be found in lines 285-361 in `main.py`
-
+In this module, which can be found in lines 465-581 in `main.py`, the actual trajectory of the self-driving car is determined. Therefore, the previous planned path is used as first waypoints if it consists more than two points. Otherwise, the stored reference point is used. Moreover, three farther points are added at distances of 50m, 60m and 90m. Next, these list of waypoints is transformed back in local coordinates to be used by the [spline library](http://kluge.in-chemnitz.de/opensource/spline/). Again, if there is already a planned path, it is used as starting point for the trajectory. Next, 50 points are equally interpolated in a path of a distance of 30m. This includes the information of the behavior module, so acceleration and decelerations are considered in the distances of two consecutive trajetory points. And last but not least, the points are transformed back in global coordinates.
 
 # CarND-Path-Planning-Project
 Self-Driving Car Engineer Nanodegree Program
