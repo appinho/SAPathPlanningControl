@@ -16,6 +16,8 @@ Therefore, each detected object that is in front of the self-driving car or at m
 ### Behavior
 
 This module, which can be found in lines 178-204 & 364-461 in `main.py`, the future behavior of the self-driving car is determined. The decision making can be separated in three cases:
+2. Another item
+⋅⋅* Unordered sub-list. 
 
 * Self-driving car is in center lane:
 ⋅⋅* All lanes are blocked
