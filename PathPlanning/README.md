@@ -1,7 +1,7 @@
 # Term 3 Project 1: Path planning
 
 <p align="center">
-  <img src="./pp.gif">
+  <img src="./path_planning.gif">
 </p>
 
 
