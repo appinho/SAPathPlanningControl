@@ -373,7 +373,7 @@ int main() {
 
             //---------------------------- BEHAVIOUR ---------------------------
 
-            // If car is currently in a lane change manoveur
+            // If car is currently in a lane change maneuver
             if(is_in_lane_change){
 
               // Lane change is over
@@ -386,7 +386,7 @@ int main() {
               }
             }
 
-            // If car is not in a lane change manoveur find best action
+            // If car is not in a lane change maneuver find best action
             if(!is_in_lane_change){
               // If car is in center lane
               if(lane == 1){
